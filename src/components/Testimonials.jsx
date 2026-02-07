@@ -23,7 +23,7 @@ function Testimonials() {
     {
       name: "Ali Hassan",
       role: "Verified Customer",
-      text: "Acnela Face Wash cleared my acne in 3 weeks. Dermatologist-backed products really make a difference!",
+      text: "Acnela Face Wash cleared my acne in 3 weeks. Skin Care and Aesthetic Professional-backed products really make a difference!",
       rating: 5
     }
   ]

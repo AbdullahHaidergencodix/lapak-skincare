@@ -12,11 +12,11 @@ function TrustSections() {
             </div>
             <div>
               <h2 className="text-3xl sm:text-4xl font-black">Dr Fatima Abid</h2>
-              <p className="text-xl text-white/90">Skin Dermatologist | Since 2012</p>
+              <p className="text-xl text-white/90">Skin Care and Aesthetic Professional | Since 2012</p>
             </div>
           </div>
           <p className="text-lg leading-relaxed mb-4">
-            With over a decade of experience in dermatology, Dr Fatima Abid has been at the forefront of providing evidence-based skincare solutions to patients across Pakistan. LA Pakistan represents her commitment to making professional-grade skincare accessible to everyone.
+            With over a decade of experience in skin care and aesthetics, Dr Fatima Abid has been at the forefront of providing evidence-based skincare solutions to patients across Pakistan. LA Pakistan represents her commitment to making professional-grade skincare accessible to everyone.
           </p>
           <p className="text-lg leading-relaxed">
             Each product in our range is carefully selected and recommended based on years of clinical experience and proven results. Trust the expertise that pharmacies and healthcare professionals rely on.
@@ -26,13 +26,13 @@ function TrustSections() {
         <section className="bg-light rounded-xl p-8 shadow-sm border border-secondary">
           <h2 className="text-2xl sm:text-3xl font-bold text-dark mb-6">💼 Wholesale & Pharmacy Partnerships</h2>
           <p className="text-accentDark leading-relaxed mb-4">
-            We specialize in wholesale distribution to pharmacies, clinics, and healthcare providers nationwide. Our main vision is to ensure quality dermatological products reach every corner of Pakistan through trusted pharmacy partners.
+            We specialize in wholesale distribution to pharmacies, clinics, and healthcare providers nationwide. Our main vision is to ensure quality skin care products reach every corner of Pakistan through trusted pharmacy partners.
           </p>
           <div className="bg-gradient-to-r from-accent/10 to-purple/10 rounded-xl p-6 mb-4">
             <h3 className="font-bold text-lg text-dark mb-3">Benefits for Pharmacy Partners:</h3>
             <ul className="space-y-2 text-accentDark">
               <li>✅ Competitive wholesale pricing</li>
-              <li>✅ Authentic dermatologist-backed products</li>
+              <li>✅ Authentic Skin Care and Aesthetic Professional-backed products</li>
               <li>✅ Reliable nationwide supply chain</li>
               <li>✅ Professional support from Dr Abid's team</li>
               <li>✅ Flexible order quantities</li>
@@ -46,7 +46,7 @@ function TrustSections() {
         <section className="bg-primary rounded-xl p-8 shadow-sm border border-secondary">
           <h2 className="text-2xl sm:text-3xl font-bold text-dark mb-6">🏥 Clinical Excellence</h2>
           <p className="text-accentDark leading-relaxed mb-4">
-            Based in Faisalabad, Dr Abid has built a reputation for excellence in dermatological care. LA Pakistan extends this commitment beyond the clinic, offering patients and customers access to the same quality products recommended during consultations.
+            Based in Faisalabad, Dr Abid has built a reputation for excellence in skin care care. LA Pakistan extends this commitment beyond the clinic, offering patients and customers access to the same quality products recommended during consultations.
           </p>
           <p className="text-accentDark leading-relaxed">
             Our formulations are chosen based on clinical efficacy, safety profiles, and real-world results. We believe in transparency, education, and empowering individuals to make informed decisions about their skin health.
@@ -62,7 +62,7 @@ function TrustSections() {
             <h3 className="font-bold text-lg text-dark mb-3">🎁 Customer Perks:</h3>
             <ul className="space-y-2 text-accentDark">
               <li>🚚 FREE shipping on orders over PKR 2000</li>
-              <li>💰 Flat PKR 150 shipping for orders under PKR 2000</li>
+              <li>💰 Flat PKR 250 shipping for orders under PKR 2000</li>
               <li>🎉 Bundle discount: Buy 3+ items, save PKR 200</li>
               <li>⏰ 24/7 customer support via WhatsApp</li>
               <li>📦 Secure packaging for product integrity</li>
@@ -78,7 +78,7 @@ function TrustSections() {
               All products sold through LA Pakistan are authentic and sourced through authorized channels. While our products are formulated with dermatological principles, individual results may vary based on skin type and condition.
             </p>
             <p>
-              For personalized skincare advice or treatment of specific conditions, we recommend consulting with a qualified dermatologist. Dr Fatima Abid is available for consultations at her clinic in Faisalabad.
+              For personalized skincare advice or treatment of specific conditions, we recommend consulting with a qualified skin care and aesthetic professional. Dr Fatima Abid is available for consultations at her clinic in Faisalabad.
             </p>
             <p>
               Wholesale partners are expected to maintain product quality during storage and display. We provide guidance on proper storage conditions to ensure maximum efficacy.

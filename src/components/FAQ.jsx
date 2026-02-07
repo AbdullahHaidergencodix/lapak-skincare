@@ -3,11 +3,7 @@ import React, { useState } from 'react'
 function FAQ() {
   const [openIndex, setOpenIndex] = useState(null)
 
-  const faqs = [
-    {
-      question: "Are these products authentic?",
-      answer: "Yes, 100%. All products are sourced through authorized channels and backed by DR Muhammad Abid Yasin Ghumman, a certified dermatologist. We guarantee authenticity."
-    },
+    const faqs = [
     {
       question: "How long does delivery take?",
       answer: "We deliver nationwide across Pakistan. Major cities receive orders in 2-3 business days, other areas in 3-5 days. Shipping fee is flat PKR 150."
@@ -27,10 +23,6 @@ function FAQ() {
     {
       question: "Are these products suitable for sensitive skin?",
       answer: "Most of our products are formulated for sensitive skin. However, we recommend patch testing and consulting with a dermatologist if you have specific concerns."
-    },
-    {
-      question: "How do I contact DR Ghumman for consultation?",
-      answer: "DR Muhammad Abid Yasin Ghumman practices in Faisalabad. You can reach out via our WhatsApp number for consultation appointment details."
     },
     {
       question: "Do you ship to my city?",

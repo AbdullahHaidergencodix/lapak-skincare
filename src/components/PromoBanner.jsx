@@ -10,7 +10,7 @@ function PromoBanner() {
       <div className="absolute inset-0 bg-white/10 animate-pulse"></div>
       <div className="max-w-7xl mx-auto flex items-center justify-center relative z-10">
         <p className="text-sm sm:text-base font-medium text-center">
-          ✨ Special Offer: Free shipping on orders over PKR 1000! Limited time only! ✨
+          ✨ Special Offer: Free shipping on orders over PKR 2000! Limited time only! ✨
         </p>
         <button
           onClick={() => setIsVisible(false)}

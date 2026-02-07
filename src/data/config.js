@@ -1,7 +1,7 @@
 export const whatsappNumber = '923054573962';
 export const businessName = 'LA Pakistan';
 export const ownerName = 'Dr Fatima Abid';
-export const ownerTitle = 'Skin Dermatologist';
+export const ownerTitle = 'Skin Care and Aesthetic Professional';
 export const city = 'Faisalabad';
 export const since = '2012';
 export const instagram = 'lapak.officials';

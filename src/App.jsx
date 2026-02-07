@@ -140,7 +140,7 @@ function App() {
                 🛍️ Our Products
               </h2>
               <p className="text-lg text-accentDark font-medium">
-                Dermatologist-recommended skincare solutions
+                Skin Care and Aesthetic Professional-recommended skincare solutions
               </p>
             </div>
 

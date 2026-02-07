@@ -2,57 +2,83 @@
 
 cd /Users/abdullah/Desktop/lapak-final-version
 
-echo "💰 UPDATING PRICES + ORIGINAL PRICES..."
+echo "🔄 UPDATING DR FATIMA ABID'S TITLE..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 python3 << 'PYTHON'
+import os
 import re
 
-# Read the file
-with open('src/data/products.js', 'r') as f:
-    content = f.read()
+files_updated = 0
 
-# Catalog prices + calculated original prices (30-40% higher)
-updates = [
-    (1, "L A Pharma Sarnla Lotion", 399, 549),
-    (2, "Versas Bar", 280, 430),
-    (3, "Acnela Bar", 280, 430),
-    (4, "Lavite Cream", 780, 999),
-    (5, "Aquaphil Gel", 399, 549),
-    (6, "Aquaphil Bar", 280, 430),
-    (7, "Aquaphil Lotion", 399, 549),
-    (8, "Vits-E Bar", 290, 440),
-    (9, "Laven Shampoo", 399, 549),
-    (10, "Sunla Sunblock Cream", 650, 850),
-    (11, "Acnela Cream", 460, 610),
-    (12, "Aquaphil Plus Care Oil", 950, 1200),
-    (13, "Acnela Face Wash", 750, 950),
-    (14, "Cariderm Cream", 699, 899),
-    (15, "Aquaphil Plus", 450, 600),
-]
+# Search through all React/JS files
+for root, dirs, files in os.walk('src'):
+    for file in files:
+        if file.endswith(('.js', '.jsx', '.ts', '.tsx', '.html')):
+            filepath = os.path.join(root, file)
+            
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                original = content
+                
+                # Replace all variations of dermatologist title
+                content = re.sub(
+                    r'Skin\s+Dermatologist',
+                    'Skin Care and Aesthetic Professional',
+                    content,
+                    flags=re.IGNORECASE
+                )
+                
+                content = re.sub(
+                    r'([Dd]ermatologist)(\s*\||\s*-|\s*,|\s*</)',
+                    r'Skin Care and Aesthetic Professional\2',
+                    content
+                )
+                
+                # Replace in dermatology context
+                content = re.sub(
+                    r'(Dr\.?\s*Fatima\s+Abid[^.]*?)dermatologist',
+                    r'\1Skin Care and Aesthetic Professional',
+                    content,
+                    flags=re.IGNORECASE
+                )
+                
+                content = re.sub(
+                    r'experience in dermatology',
+                    'experience in skin care and aesthetics',
+                    content,
+                    flags=re.IGNORECASE
+                )
+                
+                content = re.sub(
+                    r'dermatological (care|products|solutions)',
+                    r'skin care \1',
+                    content,
+                    flags=re.IGNORECASE
+                )
+                
+                # Update phrases about dermatology expertise
+                content = re.sub(
+                    r'qualified dermatologist',
+                    'qualified skin care and aesthetic professional',
+                    content,
+                    flags=re.IGNORECASE
+                )
+                
+                if content != original:
+                    with open(filepath, 'w', encoding='utf-8') as f:
+                        f.write(content)
+                    print(f"✓ Updated: {filepath}")
+                    files_updated += 1
+                    
+            except Exception as e:
+                pass
 
-# Update each product
-for product_id, name, price, original_price in updates:
-    # Find and replace the entire line for this product
-    pattern = rf'(\{{ id: {product_id}, name: "[^"]+", price: )\d+(, originalPrice: )\d+'
-    replacement = rf'\g<1>{price}\g<2>{original_price}'
-    
-    old_content = content
-    content = re.sub(pattern, replacement, content)
-    
-    if content != old_content:
-        print(f"✓ {name}: PKR {price} (was PKR {original_price})")
-    else:
-        print(f"✗ Failed: {name}")
-
-# Write back
-with open('src/data/products.js', 'w') as f:
-    f.write(content)
-
-print("\n✅ ALL PRICES UPDATED!")
-print("   • price = actual catalog price")
-print("   • originalPrice = higher (shows discount)")
+print(f"\n✅ Updated {files_updated} file(s)")
+print("   All 'Dermatologist' → 'Skin Care and Aesthetic Professional'")
 PYTHON
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "🚀 DEPLOY: git add . && git commit -m 'Fixed all prices' && git push"
+echo "🚀 DEPLOY: git add . && git commit -m 'Updated professional title' && git push"

@@ -34,7 +34,7 @@ function Footer() {
               </div>
             </div>
             <p className="text-light/80 leading-relaxed mb-4">
-              Dermatologist-backed skincare products trusted by professionals and customers nationwide.
+              Skin Care and Aesthetic Professional-backed skincare products trusted by professionals and customers nationwide.
             </p>
             <div className="space-y-2 text-sm">
               <p className="flex items-center space-x-2">
@@ -129,7 +129,7 @@ function Footer() {
               Trusted by DR {ownerName}, {ownerTitle} | Serving since {since}
             </p>
             <p className="text-xs text-light/50">
-              All products are authentic and dermatologist-recommended
+              All products are authentic and Skin Care and Aesthetic Professional-recommended
             </p>
           </div>
         </div>

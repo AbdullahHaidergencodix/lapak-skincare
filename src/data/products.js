@@ -1,5 +1,5 @@
 const products = [
-  { id: 1, name: "L A Pharma Sarnla Lotion", price: 399, originalPrice: 549, size: "60 ml", category: "Lotion", image: "/content/images/sarnla-lotion.jpg", description: "For dry itchy skin. Dermatologist-backed moisturizing lotion for daily relief.", badge: "Popular" },
+  { id: 1, name: "L A Pharma Sarnla Lotion", price: 399, originalPrice: 549, size: "60 ml", category: "Lotion", image: "/content/images/sarnla-lotion.jpg", description: "For dry itchy skin. Skin Care and Aesthetic Professional-backed moisturizing lotion for daily relief.", badge: "Popular" },
   { id: 2, name: "Versas Bar", price: 280, originalPrice: 430, size: "75 gm", category: "Cleansing Bar", image: "/content/images/versas-bar.jpg", description: "For scabies, fungal infection. Medicated cleansing bar for skin conditions." },
   { id: 3, name: "Acnela Bar", price: 280, originalPrice: 430, size: "75 gm", category: "Acne Care", image: "/content/images/acnela-bar.jpg", description: "Medicated cleansing bar formulated for acne-prone skin.", badge: "Best Seller" },
   { id: 4, name: "Lavite Cream", price: 780, originalPrice: 999, size: "20 gm", category: "Moisturizer", image: "/content/images/lavite-cream.jpg", description: "For skin whitening & brightening. Advanced formula for radiant complexion.", badge: "Premium" },
