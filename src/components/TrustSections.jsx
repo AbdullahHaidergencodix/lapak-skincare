@@ -16,7 +16,7 @@ function TrustSections() {
             </div>
           </div>
           <p className="text-lg leading-relaxed mb-4">
-            With over a decade of experience in dermatology, Dr Fatima Abid has been at the forefront of providing evidence-based skincare solutions to patients across Pakistan. Lapak represents her commitment to making professional-grade skincare accessible to everyone.
+            With over a decade of experience in dermatology, Dr Fatima Abid has been at the forefront of providing evidence-based skincare solutions to patients across Pakistan. LA Pakistan represents her commitment to making professional-grade skincare accessible to everyone.
           </p>
           <p className="text-lg leading-relaxed">
             Each product in our range is carefully selected and recommended based on years of clinical experience and proven results. Trust the expertise that pharmacies and healthcare professionals rely on.
@@ -39,14 +39,14 @@ function TrustSections() {
             </ul>
           </div>
           <p className="text-accentDark leading-relaxed">
-            If you're a pharmacy owner or healthcare provider interested in stocking Lapak products, we'd love to partner with you. Contact us via WhatsApp for wholesale inquiries and pricing.
+            If you're a pharmacy owner or healthcare provider interested in stocking LA Pakistan products, we'd love to partner with you. Contact us via WhatsApp for wholesale inquiries and pricing.
           </p>
         </section>
 
         <section className="bg-primary rounded-xl p-8 shadow-sm border border-secondary">
           <h2 className="text-2xl sm:text-3xl font-bold text-dark mb-6">🏥 Clinical Excellence</h2>
           <p className="text-accentDark leading-relaxed mb-4">
-            Based in Faisalabad, Dr Abid has built a reputation for excellence in dermatological care. Lapak extends this commitment beyond the clinic, offering patients and customers access to the same quality products recommended during consultations.
+            Based in Faisalabad, Dr Abid has built a reputation for excellence in dermatological care. LA Pakistan extends this commitment beyond the clinic, offering patients and customers access to the same quality products recommended during consultations.
           </p>
           <p className="text-accentDark leading-relaxed">
             Our formulations are chosen based on clinical efficacy, safety profiles, and real-world results. We believe in transparency, education, and empowering individuals to make informed decisions about their skin health.
@@ -75,7 +75,7 @@ function TrustSections() {
           <h2 className="text-2xl sm:text-3xl font-bold text-light mb-6">⚠️ Important Information</h2>
           <div className="text-cream leading-relaxed space-y-4 text-sm">
             <p>
-              All products sold through Lapak are authentic and sourced through authorized channels. While our products are formulated with dermatological principles, individual results may vary based on skin type and condition.
+              All products sold through LA Pakistan are authentic and sourced through authorized channels. While our products are formulated with dermatological principles, individual results may vary based on skin type and condition.
             </p>
             <p>
               For personalized skincare advice or treatment of specific conditions, we recommend consulting with a qualified dermatologist. Dr Fatima Abid is available for consultations at her clinic in Faisalabad.

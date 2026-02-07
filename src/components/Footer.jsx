@@ -5,12 +5,12 @@ function Footer() {
   const currentYear = new Date().getFullYear()
   
   const handleWhatsAppClick = () => {
-    const message = `Hello Lapak! I have a question about your products.`
+    const message = `Hello LA Pakistan! I have a question about your products.`
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
 
   const handleWholesaleClick = () => {
-    const message = `Hello! I'm interested in wholesale/pharmacy partnership with Lapak. Please share details about bulk pricing and supply terms.`
+    const message = `Hello! I'm interested in wholesale/pharmacy partnership with LA Pakistan. Please share details about bulk pricing and supply terms.`
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
 

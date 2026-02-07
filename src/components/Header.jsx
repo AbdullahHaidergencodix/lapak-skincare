@@ -9,7 +9,7 @@ function Header({ cartCount, onCartClick, wishlistCount, onWishlistClick }) {
             <div className="w-10 h-10 bg-gradient-to-br from-accent via-purple to-pink rounded-full flex items-center justify-center animate-pulse-slow">
               <span className="text-white font-bold text-xl">L</span>
             </div>
-            <h1 className="text-2xl font-black gradient-text">Lapak</h1>
+            <h1 className="text-2xl font-black gradient-text">LA Pakistan</h1>
             <span className="hidden sm:inline-block px-3 py-1 bg-gradient-to-r from-accent to-purple text-white text-xs rounded-full">
               Premium Skincare
             </span>
