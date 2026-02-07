@@ -1,5 +1,5 @@
 import React from 'react'
-import { whatsappNumber, businessName, shippingFee, bundleDiscountThreshold, bundleDiscountAmount } from '../data/config'
+import { whatsappNumber, businessName, shippingFee, freeShippingThreshold, bundleDiscountThreshold, bundleDiscountAmount } from '../data/config'
 
 function Cart({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem, onClearCart }) {
   if (!isOpen) return null
@@ -7,7 +7,7 @@ function Cart({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem, onClearCa
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0)
   const bundleDiscount = totalItems >= bundleDiscountThreshold ? bundleDiscountAmount : 0
-  const shipping = cart.length > 0 ? shippingFee : 0
+  const shipping = subtotal >= freeShippingThreshold ? 0 : (cart.length > 0 ? shippingFee : 0)
   const total = subtotal + shipping - bundleDiscount
 
   const handleWhatsAppCheckout = () => {
@@ -26,7 +26,7 @@ function Cart({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem, onClearCa
     
     message += `━━━━━━━━━━━━━━━━━━━━%0A`
     message += `💰 *Subtotal:* PKR ${subtotal}%0A`
-    message += `🚚 *Shipping:* PKR ${shipping}%0A`
+    message += `🚚 *Shipping:* ${shipping === 0 ? 'FREE' : `PKR ${shipping}`}%0A`
     
     if (bundleDiscount > 0) {
       message += `🎉 *Bundle Discount (${totalItems} items):* -PKR ${bundleDiscount}%0A`
@@ -67,18 +67,24 @@ function Cart({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem, onClearCa
           </div>
         ) : (
           <>
-            {totalItems >= bundleDiscountThreshold && (
+            {subtotal >= freeShippingThreshold ? (
               <div className="bg-gradient-to-r from-green/20 to-cyan/20 border border-green p-3 m-4 rounded-xl">
                 <p className="text-sm font-bold text-green flex items-center">
-                  🎉 Bundle Discount Applied! Save PKR {bundleDiscountAmount}
+                  🎉 Congratulations! You get FREE SHIPPING!
+                </p>
+              </div>
+            ) : (
+              <div className="bg-gradient-to-r from-orange/20 to-pink/20 border border-orange p-3 m-4 rounded-xl">
+                <p className="text-sm font-bold text-orange flex items-center">
+                  🚚 Add PKR {freeShippingThreshold - subtotal} more for FREE shipping!
                 </p>
               </div>
             )}
             
-            {totalItems === bundleDiscountThreshold - 1 && (
-              <div className="bg-gradient-to-r from-orange/20 to-pink/20 border border-orange p-3 m-4 rounded-xl">
-                <p className="text-sm font-bold text-orange flex items-center">
-                  🔥 Add 1 more item to get PKR {bundleDiscountAmount} off!
+            {totalItems >= bundleDiscountThreshold && (
+              <div className="bg-gradient-to-r from-green/20 to-cyan/20 border border-green p-3 mx-4 mb-4 rounded-xl">
+                <p className="text-sm font-bold text-green flex items-center">
+                  🎉 Bundle Discount Applied! Save PKR {bundleDiscountAmount}
                 </p>
               </div>
             )}
@@ -129,7 +135,9 @@ function Cart({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem, onClearCa
                 </div>
                 <div className="flex justify-between text-dark">
                   <span>Shipping Fee</span>
-                  <span className="font-semibold">PKR {shipping}</span>
+                  <span className={`font-semibold ${shipping === 0 ? 'text-green' : ''}`}>
+                    {shipping === 0 ? 'FREE 🎉' : `PKR ${shipping}`}
+                  </span>
                 </div>
                 {bundleDiscount > 0 && (
                   <div className="flex justify-between text-green font-bold">

@@ -8,15 +8,15 @@ function TrustSections() {
         <section className="bg-gradient-to-br from-accent via-purple to-pink rounded-3xl p-8 sm:p-12 shadow-2xl text-white">
           <div className="flex items-center space-x-4 mb-6">
             <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-4xl">
-              👨‍⚕️
+              👩‍⚕️
             </div>
             <div>
-              <h2 className="text-3xl sm:text-4xl font-black">DR Muhammad Abid Yasin Ghumman</h2>
+              <h2 className="text-3xl sm:text-4xl font-black">Dr Fatima Abid</h2>
               <p className="text-xl text-white/90">Skin Dermatologist | Since 2012</p>
             </div>
           </div>
           <p className="text-lg leading-relaxed mb-4">
-            With over a decade of experience in dermatology, DR Muhammad Abid Yasin Ghumman has been at the forefront of providing evidence-based skincare solutions to patients across Pakistan. Lapak represents his commitment to making professional-grade skincare accessible to everyone.
+            With over a decade of experience in dermatology, Dr Fatima Abid has been at the forefront of providing evidence-based skincare solutions to patients across Pakistan. Lapak represents her commitment to making professional-grade skincare accessible to everyone.
           </p>
           <p className="text-lg leading-relaxed">
             Each product in our range is carefully selected and recommended based on years of clinical experience and proven results. Trust the expertise that pharmacies and healthcare professionals rely on.
@@ -34,7 +34,7 @@ function TrustSections() {
               <li>✅ Competitive wholesale pricing</li>
               <li>✅ Authentic dermatologist-backed products</li>
               <li>✅ Reliable nationwide supply chain</li>
-              <li>✅ Professional support from DR Ghumman's team</li>
+              <li>✅ Professional support from Dr Abid's team</li>
               <li>✅ Flexible order quantities</li>
             </ul>
           </div>
@@ -46,7 +46,7 @@ function TrustSections() {
         <section className="bg-primary rounded-xl p-8 shadow-sm border border-secondary">
           <h2 className="text-2xl sm:text-3xl font-bold text-dark mb-6">🏥 Clinical Excellence</h2>
           <p className="text-accentDark leading-relaxed mb-4">
-            Based in Faisalabad, DR Ghumman has built a reputation for excellence in dermatological care. Lapak extends this commitment beyond the clinic, offering patients and customers access to the same quality products recommended during consultations.
+            Based in Faisalabad, Dr Abid has built a reputation for excellence in dermatological care. Lapak extends this commitment beyond the clinic, offering patients and customers access to the same quality products recommended during consultations.
           </p>
           <p className="text-accentDark leading-relaxed">
             Our formulations are chosen based on clinical efficacy, safety profiles, and real-world results. We believe in transparency, education, and empowering individuals to make informed decisions about their skin health.
@@ -54,14 +54,15 @@ function TrustSections() {
         </section>
 
         <section className="bg-light rounded-xl p-8 shadow-sm border border-secondary">
-          <h2 className="text-2xl sm:text-3xl font-bold text-dark mb-6">🚚 Nationwide Reach</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-dark mb-6">🚚 Shipping Information</h2>
           <p className="text-accentDark leading-relaxed mb-4">
             Whether you're in Faisalabad, Karachi, Lahore, Islamabad, or any other city in Pakistan, we deliver premium skincare products right to your doorstep. Our logistics network ensures fast and reliable delivery across all provinces.
           </p>
           <div className="bg-gradient-to-r from-cyan/10 to-green/10 rounded-xl p-6">
             <h3 className="font-bold text-lg text-dark mb-3">🎁 Customer Perks:</h3>
             <ul className="space-y-2 text-accentDark">
-              <li>🚚 Flat shipping rate: Only PKR 150</li>
+              <li>🚚 FREE shipping on orders over PKR 2000</li>
+              <li>💰 Flat PKR 150 shipping for orders under PKR 2000</li>
               <li>🎉 Bundle discount: Buy 3+ items, save PKR 200</li>
               <li>⏰ 24/7 customer support via WhatsApp</li>
               <li>📦 Secure packaging for product integrity</li>
@@ -77,7 +78,7 @@ function TrustSections() {
               All products sold through Lapak are authentic and sourced through authorized channels. While our products are formulated with dermatological principles, individual results may vary based on skin type and condition.
             </p>
             <p>
-              For personalized skincare advice or treatment of specific conditions, we recommend consulting with a qualified dermatologist. DR Muhammad Abid Yasin Ghumman is available for consultations at his clinic in Faisalabad.
+              For personalized skincare advice or treatment of specific conditions, we recommend consulting with a qualified dermatologist. Dr Fatima Abid is available for consultations at her clinic in Faisalabad.
             </p>
             <p>
               Wholesale partners are expected to maintain product quality during storage and display. We provide guidance on proper storage conditions to ensure maximum efficacy.

@@ -10,7 +10,7 @@ function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="inline-block bg-white/20 backdrop-blur-lg rounded-2xl px-6 py-3 mb-6">
           <p className="text-white font-bold text-sm sm:text-base">
-            🏥 Trusted by DR Muhammad Abid Yasin Ghumman - Skin Dermatologist
+            🏥 Trusted by Dr Fatima Abid - Skin Dermatologist
           </p>
         </div>
         <h2 className="text-4xl sm:text-6xl font-black text-white mb-6 tracking-tight animate-fade-in">
@@ -24,7 +24,7 @@ function Hero() {
           Dermatologist-backed formulations trusted by professionals
         </p>
         <p className="text-lg text-white/80 mb-8">
-          🚚 Nationwide Delivery | 💼 Wholesale Available | ⏰ 24/7 Support
+          🚚 FREE Shipping on Orders Over PKR 2000 | 💼 Wholesale Available | ⏰ 24/7 Support
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <button
