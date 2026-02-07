@@ -1,0 +1,18 @@
+const products = [
+  { id: 1, name: "L A Pharma Sarnla Lotion", price: 549, originalPrice: 399, size: "60 ml", category: "Lotion", image: "/content/images/sarnla-lotion.jpg", description: "Dermatologist-backed moisturizing lotion for daily skin hydration.", badge: "Popular" },
+  { id: 2, name: "Versas Bar", price: 430, originalPrice: 280, size: "75 gm", category: "Cleansing Bar", image: "/content/images/versas-bar.jpg", description: "Gentle cleansing bar suitable for sensitive skin." },
+  { id: 3, name: "Acnela Bar", price: 430, originalPrice: 280, size: "75 gm", category: "Acne Care", image: "/content/images/acnela-bar.jpg", description: "Medicated cleansing bar formulated for acne-prone skin.", badge: "Best Seller" },
+  { id: 4, name: "Lavite Cream", price: 930, originalPrice: 780, size: "20 gm", category: "Moisturizer", image: "/content/images/lavite-cream.jpg", description: "Nourishing cream designed to restore skin barrier health.", badge: "Premium" },
+  { id: 5, name: "Aquaphil Gel", price: 549, originalPrice: 399, size: "100 gm", category: "Hydration", image: "/content/images/aquaphil-gel.jpg", description: "Lightweight gel moisturizer for long-lasting hydration.", badge: "Best Seller" },
+  { id: 6, name: "Aquaphil Bar", price: 430, originalPrice: 280, size: "75 gm", category: "Cleansing Bar", image: "/content/images/aquaphil-bar.jpg", description: "Soap-free cleansing bar for dry and sensitive skin.", badge: "Popular" },
+  { id: 7, name: "Aquaphil Lotion", price: 549, originalPrice: 399, size: "60 ml", category: "Lotion", image: "/content/images/aquaphil-lotion.jpg", description: "Daily-use lotion providing deep moisturization.", badge: "Best Seller" },
+  { id: 8, name: "Vits-E Bar", price: 440, originalPrice: 290, size: "75 gm", category: "Vitamin Care", image: "/content/images/vits-e-bar.jpg", description: "Vitamin-E enriched cleansing bar for skin nourishment." },
+  { id: 9, name: "Laven Shampoo", price: 549, originalPrice: 399, size: "100 ml", category: "Hair Care", image: "/content/images/laven-shampoo.jpg", description: "Mild shampoo formulated for sensitive scalp and daily use." },
+  { id: 10, name: "Sunla Sunblock Cream", price: 800, originalPrice: 650, size: "20 gm", category: "Sun Protection", image: "/content/images/sunla-sunblock.jpg", description: "Broad-spectrum sunblock for daily UV protection.", badge: "New" },
+  { id: 11, name: "Acnela Cream", price: 610, originalPrice: 460, size: "20 gm", category: "Acne Treatment", image: "/content/images/acnela-cream.jpg", description: "Targeted acne treatment cream recommended by dermatologists.", badge: "Popular" },
+  { id: 12, name: "Aquaphil Plus Care Oil", price: 1100, originalPrice: 950, size: "100 ml", category: "Body Oil", image: "/content/images/aquaphil-oil.jpg", description: "Intensive care oil for extremely dry and sensitive skin.", badge: "Premium" },
+  { id: 13, name: "Acnela Face Wash", price: 900, originalPrice: 750, size: "50 ml", category: "Face Wash", image: "/content/images/acnela-facewash.jpg", description: "Gentle foaming face wash for acne-prone skin.", badge: "Best Seller" },
+  { id: 14, name: "Cariderm Cream", price: 849, originalPrice: 699, size: "20 gm", category: "Dermatology Care", image: "/content/images/cariderm-cream.jpg", description: "Specialized dermatological cream for skin repair.", badge: "Premium" },
+  { id: 15, name: "Aquaphil Plus", price: 600, originalPrice: 450, size: "100 gm", category: "Moisturizer", image: "/content/images/aquaphil-plus.jpg", description: "Advanced moisturizing formula for long-term skin comfort.", badge: "Popular" }
+];
+export default products;

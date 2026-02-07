@@ -1,0 +1,79 @@
+import React, { useState } from 'react'
+
+function FAQ() {
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const faqs = [
+    {
+      question: "Are these products authentic?",
+      answer: "Yes, 100%. All products are sourced through authorized channels and backed by DR Muhammad Abid Yasin Ghumman, a certified dermatologist. We guarantee authenticity."
+    },
+    {
+      question: "How long does delivery take?",
+      answer: "We deliver nationwide across Pakistan. Major cities receive orders in 2-3 business days, other areas in 3-5 days. Shipping fee is flat PKR 150."
+    },
+    {
+      question: "Do you offer wholesale pricing?",
+      answer: "Yes! We specialize in wholesale distribution to pharmacies and healthcare providers. Contact us via WhatsApp for bulk pricing and partnership details."
+    },
+    {
+      question: "Can I return products?",
+      answer: "We accept returns of unopened products within 7 days of delivery. Contact us on WhatsApp with your order details for return process."
+    },
+    {
+      question: "How do I get the bundle discount?",
+      answer: "Simply add 3 or more items to your cart and you'll automatically get PKR 200 off at checkout. The discount applies to your total before shipping."
+    },
+    {
+      question: "Are these products suitable for sensitive skin?",
+      answer: "Most of our products are formulated for sensitive skin. However, we recommend patch testing and consulting with a dermatologist if you have specific concerns."
+    },
+    {
+      question: "How do I contact DR Ghumman for consultation?",
+      answer: "DR Muhammad Abid Yasin Ghumman practices in Faisalabad. You can reach out via our WhatsApp number for consultation appointment details."
+    },
+    {
+      question: "Do you ship to my city?",
+      answer: "Yes! We ship to all cities and towns across Pakistan. From Karachi to Gilgit, we've got you covered."
+    }
+  ]
+
+  return (
+    <section className="py-16 bg-light">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-black gradient-text mb-4">❓ Frequently Asked Questions</h2>
+          <p className="text-lg text-accentDark">Everything you need to know</p>
+        </div>
+        
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div key={index} className="glass rounded-xl overflow-hidden border-2 border-transparent hover:border-accent/30 transition-all">
+              <button
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-secondary/30 transition-colors"
+              >
+                <span className="font-bold text-dark pr-4">{faq.question}</span>
+                <svg 
+                  className={`w-6 h-6 text-accent transition-transform flex-shrink-0 ${openIndex === index ? 'rotate-180' : ''}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {openIndex === index && (
+                <div className="px-6 pb-4 text-accentDark leading-relaxed animate-slide-up">
+                  {faq.answer}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default FAQ

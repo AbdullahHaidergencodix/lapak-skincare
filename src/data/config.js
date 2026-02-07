@@ -1,0 +1,12 @@
+export const whatsappNumber = '923054573962';
+export const businessName = 'Lapak';
+export const ownerName = 'DR Muhammad Abid Yasin Ghumman';
+export const ownerTitle = 'Skin Dermatologist';
+export const city = 'Faisalabad';
+export const since = '2012';
+export const instagram = 'lapak.officials';
+export const deliveryAreas = 'Nationwide Delivery Available';
+export const businessHours = '24/7 Customer Support';
+export const shippingFee = 150;
+export const bundleDiscountThreshold = 3;
+export const bundleDiscountAmount = 200;
