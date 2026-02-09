@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import PromoBanner from './components/PromoBanner'
@@ -14,6 +14,16 @@ import ProductModal from './components/ProductModal'
 import ScrollToTop from './components/ScrollToTop'
 import Toast from './components/Toast'
 import LoadingSkeleton from './components/LoadingSkeleton'
+import SEO from './components/SEO'
+import WhatsAppWidget from './components/WhatsAppWidget'
+import SalesNotification from './components/SalesNotification'
+import CountdownTimer from './components/CountdownTimer'
+import NewsletterPopup from './components/NewsletterPopup'
+import SortFilter from './components/SortFilter'
+import BundleDeals from './components/BundleDeals'
+import TrendingProducts from './components/TrendingProducts'
+import FeaturesBanner from './components/FeaturesBanner'
+import BackInStockModal from './components/BackInStockModal'
 import products from './data/products'
 
 function App() {
@@ -26,6 +36,16 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [toast, setToast] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [sortBy, setSortBy] = useState('default')
+  const [filters, setFilters] = useState({ price: 'all', stock: 'all' })
+  const [backInStockProduct, setBackInStockProduct] = useState(null)
+
+  // Set flash sale end time (24 hours from now)
+  const flashSaleEndTime = useMemo(() => {
+    const end = new Date()
+    end.setHours(end.getHours() + 24)
+    return end.toISOString()
+  }, [])
 
   useEffect(() => {
     const savedCart = localStorage.getItem('lapak-cart')
@@ -56,6 +76,10 @@ function App() {
   }
 
   const addToCart = (product) => {
+    if (product.stock === 0) {
+      setBackInStockProduct(product)
+      return
+    }
     const existingItem = cart.find(item => item.id === product.id)
     if (existingItem) {
       setCart(cart.map(item =>
@@ -65,6 +89,20 @@ function App() {
       setCart([...cart, { ...product, quantity: 1 }])
     }
     showToast(`${product.name} added to cart! 🎉`)
+  }
+
+  const addBundle = (bundle) => {
+    setCart([...cart, { 
+      id: bundle.id, 
+      name: bundle.name, 
+      price: bundle.bundlePrice,
+      originalPrice: bundle.originalPrice,
+      image: bundle.image,
+      size: 'Bundle',
+      quantity: 1,
+      isBundle: true
+    }])
+    showToast(`${bundle.name} bundle added! 🎁`)
   }
 
   const removeFromCart = (productId) => {
@@ -103,31 +141,112 @@ function App() {
     }
   }
 
+  const handleSortChange = (value) => {
+    setSortBy(value)
+  }
+
+  const handleFilterChange = (type, value) => {
+    if (type === 'clear') {
+      setFilters({ price: 'all', stock: 'all' })
+    } else {
+      setFilters(prev => ({ ...prev, [type]: value }))
+    }
+  }
+
   const categories = ['All', ...new Set(products.map(p => p.category))]
 
-  const filteredProducts = products.filter(product => {
-    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         product.description.toLowerCase().includes(searchQuery.toLowerCase())
-    const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory
-    return matchesSearch && matchesCategory
-  })
+  // Apply filters and sorting
+  const filteredProducts = useMemo(() => {
+    let result = [...products]
+
+    // Search filter
+    if (searchQuery) {
+      result = result.filter(product =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    }
+
+    // Category filter
+    if (selectedCategory !== 'All') {
+      result = result.filter(product => product.category === selectedCategory)
+    }
+
+    // Price filter
+    if (filters.price !== 'all') {
+      const [min, max] = filters.price.split('-').map(Number)
+      if (max) {
+        result = result.filter(p => p.price >= min && p.price <= max)
+      } else {
+        result = result.filter(p => p.price >= 800)
+      }
+    }
+
+    // Stock filter
+    if (filters.stock === 'instock') {
+      result = result.filter(p => p.stock > 0)
+    } else if (filters.stock === 'lowstock') {
+      result = result.filter(p => p.stock > 0 && p.stock <= 10)
+    }
+
+    // Sorting
+    switch (sortBy) {
+      case 'price-low':
+        result.sort((a, b) => a.price - b.price)
+        break
+      case 'price-high':
+        result.sort((a, b) => b.price - a.price)
+        break
+      case 'rating':
+        result.sort((a, b) => (b.rating || 0) - (a.rating || 0))
+        break
+      case 'bestseller':
+        result.sort((a, b) => (b.reviewCount || 0) - (a.reviewCount || 0))
+        break
+      case 'newest':
+        result.sort((a, b) => (a.badge === 'New' ? -1 : 1))
+        break
+      default:
+        break
+    }
+
+    return result
+  }, [products, searchQuery, selectedCategory, filters, sortBy])
+
+  const activeFiltersCount = Object.values(filters).filter(v => v !== 'all').length
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO />
+      
+      {/* Flash Sale Countdown */}
+      <CountdownTimer endTime={flashSaleEndTime} title="🔥 Flash Sale Ends In" />
+      
       <PromoBanner />
       <Header 
         cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
         onCartClick={() => setIsCartOpen(true)}
         wishlistCount={wishlist.length}
-        onWishlistClick={() => alert('Wishlist: ' + wishlist.length + ' items')}
+        onWishlistClick={() => showToast(`You have ${wishlist.length} items in wishlist! ❤️`)}
       />
+      
       <main className="flex-grow">
         <Hero />
         <TrustBadges />
+        <FeaturesBanner />
         
-        {/* Products Section with Beautiful Gradient Background */}
-        <div className="relative bg-gradient-to-br from-primary via-secondary to-primary overflow-hidden">
-          {/* Animated Background Elements */}
+        {/* Trending Products Section */}
+        <TrendingProducts 
+          products={products}
+          onQuickView={handleQuickView}
+          onAddToCart={addToCart}
+        />
+        
+        {/* Bundle Deals Section */}
+        <BundleDeals onAddBundle={addBundle} />
+        
+        {/* Products Section */}
+        <div id="products" className="relative bg-gradient-to-br from-primary via-secondary to-primary overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-accent/40 to-purple/40 rounded-full blur-3xl animate-pulse-slow"></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-pink/40 to-cyan/40 rounded-full blur-3xl animate-float"></div>
@@ -137,14 +256,15 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
             <div className="text-center mb-8">
               <h2 className="text-4xl sm:text-5xl font-black gradient-text mb-3">
-                🛍️ Our Products
+                🛍️ All Products
               </h2>
               <p className="text-lg text-accentDark font-medium">
-                Skin Care and Aesthetic Professional-recommended skincare solutions
+                Dermatologist-recommended skincare solutions
               </p>
             </div>
 
-            <div className="mb-8 space-y-4">
+            {/* Search & Categories */}
+            <div className="mb-6 space-y-4">
               <input
                 type="text"
                 placeholder="🔍 Search for your perfect product..."
@@ -168,6 +288,14 @@ function App() {
                 ))}
               </div>
             </div>
+
+            {/* Sort & Filter */}
+            <SortFilter 
+              onSortChange={handleSortChange}
+              onFilterChange={handleFilterChange}
+              totalProducts={filteredProducts.length}
+              activeFilters={activeFiltersCount}
+            />
             
             {isLoading ? (
               <LoadingSkeleton />
@@ -181,6 +309,7 @@ function App() {
               />
             )}
 
+            {/* Recently Viewed */}
             {recentlyViewed.length > 0 && (
               <div className="mt-16">
                 <div className="text-center mb-8">
@@ -201,7 +330,7 @@ function App() {
                         onError={(e) => e.target.src = 'data:image/svg+xml,%3Csvg width="200" height="200" xmlns="http://www.w3.org/2000/svg"%3E%3Crect width="200" height="200" fill="%23e0e7ff"/%3E%3C/svg%3E'}
                       />
                       <p className="text-sm font-bold text-dark truncate">{product.name}</p>
-                      <p className="text-xs text-accent font-semibold">PKR {product.price}</p>
+                      <p className="text-xs text-accent font-semibold">PKR {product.price.toLocaleString()}</p>
                     </div>
                   ))}
                 </div>
@@ -215,7 +344,10 @@ function App() {
         <FAQ />
         <TrustSections />
       </main>
+      
       <Footer />
+      
+      {/* Cart Drawer */}
       <Cart
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
@@ -224,6 +356,8 @@ function App() {
         onRemoveItem={removeFromCart}
         onClearCart={clearCart}
       />
+      
+      {/* Product Modal */}
       {selectedProduct && (
         <ProductModal
           product={selectedProduct}
@@ -231,7 +365,30 @@ function App() {
           onAddToCart={addToCart}
         />
       )}
+      
+      {/* Back in Stock Modal */}
+      <BackInStockModal
+        product={backInStockProduct}
+        isOpen={!!backInStockProduct}
+        onClose={() => setBackInStockProduct(null)}
+      />
+      
+      {/* Newsletter Popup */}
+      <NewsletterPopup />
+      
+      {/* Social Proof Notifications */}
+      <SalesNotification products={products} />
+      
+      {/* Scroll to Top */}
       <ScrollToTop />
+      
+      {/* WhatsApp Widget */}
+      <WhatsAppWidget 
+        phoneNumber="923054573962" 
+        message="Hi! I'm interested in LA Pakistan skincare products. Can you help me?" 
+      />
+      
+      {/* Toast Notifications */}
       {toast && (
         <Toast
           message={toast.message}
