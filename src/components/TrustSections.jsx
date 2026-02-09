@@ -34,7 +34,7 @@ function TrustSections() {
               <li>✅ Competitive wholesale pricing</li>
               <li>✅ Authentic Skin Care and Aesthetic Professional-backed products</li>
               <li>✅ Reliable nationwide supply chain</li>
-              <li>✅ Professional support from Dr Abid's team</li>
+              <li>✅ Professional support from Dr Fatima Abid's team</li>
               <li>✅ Flexible order quantities</li>
             </ul>
           </div>
@@ -46,7 +46,7 @@ function TrustSections() {
         <section className="bg-primary rounded-xl p-8 shadow-sm border border-secondary">
           <h2 className="text-2xl sm:text-3xl font-bold text-dark mb-6">🏥 Clinical Excellence</h2>
           <p className="text-accentDark leading-relaxed mb-4">
-            Based in Faisalabad, Dr Abid has built a reputation for excellence in skin care care. LA Pakistan extends this commitment beyond the clinic, offering patients and customers access to the same quality products recommended during consultations.
+            Based in Faisalabad, Dr Fatima Abid has built a reputation for excellence in skin care. LA Pakistan extends this commitment beyond the clinic, offering patients and customers access to the same quality products recommended during consultations.
           </p>
           <p className="text-accentDark leading-relaxed">
             Our formulations are chosen based on clinical efficacy, safety profiles, and real-world results. We believe in transparency, education, and empowering individuals to make informed decisions about their skin health.

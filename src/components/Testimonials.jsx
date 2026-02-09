@@ -5,7 +5,7 @@ function Testimonials() {
     {
       name: "Pharmacy Owner - Karachi",
       role: "Wholesale Partner",
-      text: "We've been stocking LA Pakistan products for 2 years. Our customers love the quality and results. DR Ghumman's backing gives us confidence.",
+      text: "We've been stocking LA Pakistan products for 2 years. Our customers love the quality and results. Dr Fatima Abid's backing gives us confidence.",
       rating: 5
     },
     {

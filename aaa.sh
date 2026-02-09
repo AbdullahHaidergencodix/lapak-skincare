@@ -2,7 +2,7 @@
 
 cd /Users/abdullah/Desktop/lapak-final-version
 
-echo "🔄 UPDATING DR FATIMA ABID'S TITLE..."
+echo "🔧 FIXING ALL DR ABID REFERENCES..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 python3 << 'PYTHON'
@@ -11,7 +11,6 @@ import re
 
 files_updated = 0
 
-# Search through all React/JS files
 for root, dirs, files in os.walk('src'):
     for file in files:
         if file.endswith(('.js', '.jsx', '.ts', '.tsx', '.html')):
@@ -23,48 +22,27 @@ for root, dirs, files in os.walk('src'):
                 
                 original = content
                 
-                # Replace all variations of dermatologist title
+                # Replace "Dr Abid" when NOT already "Dr Fatima Abid"
                 content = re.sub(
-                    r'Skin\s+Dermatologist',
-                    'Skin Care and Aesthetic Professional',
+                    r'\bDr\.?\s+Abid(?!\s+Yasin)(?!\s*Fatima)\b',
+                    'Dr Fatima Abid',
                     content,
                     flags=re.IGNORECASE
                 )
                 
+                # Fix "skin care care" typo
                 content = re.sub(
-                    r'([Dd]ermatologist)(\s*\||\s*-|\s*,|\s*</)',
-                    r'Skin Care and Aesthetic Professional\2',
+                    r'skin care care',
+                    'skin care',
+                    content,
+                    flags=re.IGNORECASE
+                )
+                
+                # Replace Dr Abid's team/clinic references
+                content = re.sub(
+                    r"Dr Abid's",
+                    "Dr Fatima Abid's",
                     content
-                )
-                
-                # Replace in dermatology context
-                content = re.sub(
-                    r'(Dr\.?\s*Fatima\s+Abid[^.]*?)dermatologist',
-                    r'\1Skin Care and Aesthetic Professional',
-                    content,
-                    flags=re.IGNORECASE
-                )
-                
-                content = re.sub(
-                    r'experience in dermatology',
-                    'experience in skin care and aesthetics',
-                    content,
-                    flags=re.IGNORECASE
-                )
-                
-                content = re.sub(
-                    r'dermatological (care|products|solutions)',
-                    r'skin care \1',
-                    content,
-                    flags=re.IGNORECASE
-                )
-                
-                # Update phrases about dermatology expertise
-                content = re.sub(
-                    r'qualified dermatologist',
-                    'qualified skin care and aesthetic professional',
-                    content,
-                    flags=re.IGNORECASE
                 )
                 
                 if content != original:
@@ -74,11 +52,15 @@ for root, dirs, files in os.walk('src'):
                     files_updated += 1
                     
             except Exception as e:
-                pass
+                print(f"✗ Error in {filepath}: {e}")
 
-print(f"\n✅ Updated {files_updated} file(s)")
-print("   All 'Dermatologist' → 'Skin Care and Aesthetic Professional'")
+if files_updated == 0:
+    print("⚠ No changes made - checking TrustSections directly...")
+else:
+    print(f"\n✅ Updated {files_updated} file(s)")
+    print("   'Dr Abid' → 'Dr Fatima Abid'")
+    print("   Fixed 'skin care care' typo")
 PYTHON
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "🚀 DEPLOY: git add . && git commit -m 'Updated professional title' && git push"
+echo "🚀 DEPLOY: git add . && git commit -m 'Fixed doctor references' && git push"
