@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BundlesSection({ bundles, products, onAddBundle }) {
+function BundlesSection({ bundles, products, onAddBundle, onQuickView }) {
   if (!bundles || bundles.length === 0) return null
 
   return (
@@ -21,9 +21,15 @@ function BundlesSection({ bundles, products, onAddBundle }) {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="flex -space-x-4">
                       {bundleProducts.slice(0, 3).map((p, i) => (
-                        <img key={p.id} src={p.image} alt={p.name} className="w-20 h-20 object-cover rounded-xl border-2 border-white shadow-lg"
+                        <img 
+                          key={p.id} 
+                          src={p.image} 
+                          alt={p.name} 
+                          className="w-20 h-20 object-cover rounded-xl border-2 border-white shadow-lg cursor-pointer hover:scale-110 hover:z-10 transition-transform"
                           style={{ transform: `rotate(${(i - 1) * 5}deg)` }}
-                          onError={(e) => { e.target.src = 'data:image/svg+xml,%3Csvg width="80" height="80" xmlns="http://www.w3.org/2000/svg"%3E%3Crect fill="%23f0f0f0" width="80" height="80"/%3E%3C/svg%3E' }} />
+                          onClick={() => onQuickView(p)}
+                          onError={(e) => { e.target.src = 'data:image/svg+xml,%3Csvg width="80" height="80" xmlns="http://www.w3.org/2000/svg"%3E%3Crect fill="%23f0f0f0" width="80" height="80"/%3E%3C/svg%3E' }} 
+                        />
                       ))}
                     </div>
                   </div>
@@ -36,7 +42,13 @@ function BundlesSection({ bundles, products, onAddBundle }) {
                   
                   <div className="flex items-center gap-2 mb-4 flex-wrap">
                     {bundleProducts.map(p => (
-                      <span key={p.id} className="text-xs bg-purple-100/80 text-purple-700 px-2 py-1 rounded-full">{p.name}</span>
+                      <button 
+                        key={p.id} 
+                        onClick={() => onQuickView(p)}
+                        className="text-xs bg-purple-100/80 text-purple-700 px-3 py-1.5 rounded-full hover:bg-purple-200 hover:scale-105 transition-all cursor-pointer font-medium"
+                      >
+                        {p.name}
+                      </button>
                     ))}
                   </div>
                   
