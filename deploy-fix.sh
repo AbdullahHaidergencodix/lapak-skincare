@@ -4,6 +4,13 @@ import React from 'react'
 function BundlesSection({ bundles, products, onAddBundle, onQuickView }) {
   if (!bundles || bundles.length === 0) return null
 
+  const handleProductClick = (e, product) => {
+    e.stopPropagation()
+    if (product && onQuickView) {
+      onQuickView(product)
+    }
+  }
+
   return (
     <section id="bundles" className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
@@ -14,21 +21,23 @@ function BundlesSection({ bundles, products, onAddBundle, onQuickView }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {bundles.map((bundle, index) => {
-            const bundleProducts = bundle.products?.map(id => products.find(p => p.id === id)).filter(Boolean) || []
+            const bundleProducts = bundle.products
+              ?.map(id => products.find(p => p.id === id))
+              .filter(Boolean) || []
             
             return (
               <div key={bundle.id} className="glass-card rounded-3xl overflow-hidden animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="relative h-48 bg-gradient-to-br from-purple-500/30 to-pink-500/30">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="flex -space-x-4">
-                      {bundleProducts.slice(0, 3).map((p, i) => (
+                      {bundleProducts.slice(0, 3).map((product, i) => (
                         <img 
-                          key={p.id} 
-                          src={p.image} 
-                          alt={p.name} 
+                          key={product.id} 
+                          src={product.image} 
+                          alt={product.name} 
                           className="w-20 h-20 object-cover rounded-xl border-2 border-white shadow-lg cursor-pointer hover:scale-110 hover:z-10 transition-transform"
                           style={{ transform: `rotate(${(i - 1) * 5}deg)` }}
-                          onClick={() => onQuickView(p)}
+                          onClick={(e) => handleProductClick(e, product)}
                           onError={(e) => { e.target.src = 'data:image/svg+xml,%3Csvg width="80" height="80" xmlns="http://www.w3.org/2000/svg"%3E%3Crect fill="%23f0f0f0" width="80" height="80"/%3E%3C/svg%3E' }} 
                         />
                       ))}
@@ -42,13 +51,14 @@ function BundlesSection({ bundles, products, onAddBundle, onQuickView }) {
                   <p className="text-gray-600 text-sm mb-4">{bundle.description}</p>
                   
                   <div className="flex items-center gap-2 mb-4 flex-wrap">
-                    {bundleProducts.map(p => (
+                    {bundleProducts.map(product => (
                       <button 
-                        key={p.id} 
-                        onClick={() => onQuickView(p)}
+                        key={product.id} 
+                        type="button"
+                        onClick={(e) => handleProductClick(e, product)}
                         className="text-xs bg-purple-100/80 text-purple-700 px-3 py-1.5 rounded-full hover:bg-purple-200 hover:scale-105 transition-all cursor-pointer font-medium"
                       >
-                        {p.name}
+                        {product.name}
                       </button>
                     ))}
                   </div>
@@ -59,7 +69,11 @@ function BundlesSection({ bundles, products, onAddBundle, onQuickView }) {
                     <span className="text-xs text-green-600 font-semibold bg-green-100/80 px-2 py-1 rounded-full">Save PKR {bundle.savings}</span>
                   </div>
                   
-                  <button onClick={() => onAddBundle(bundle, bundleProducts)} className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                  <button 
+                    type="button"
+                    onClick={() => onAddBundle(bundle, bundleProducts)} 
+                    className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                  >
                     Add Bundle to Cart
                   </button>
                 </div>
@@ -75,4 +89,8 @@ function BundlesSection({ bundles, products, onAddBundle, onQuickView }) {
 export default BundlesSection
 EOF
 
-echo "✅ BundlesSection updated"
+echo "✅ BundlesSection fixed!"
+echo ""
+echo "🚀 Deploying to live..."
+
+git add -A && git commit -m "fix: bundle product clicks now open correct product details" && git push origin main && npx vercel --prod --yes
