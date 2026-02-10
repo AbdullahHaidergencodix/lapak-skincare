@@ -1,20 +1,25 @@
 import React, { useEffect } from 'react'
 
-function Toast({ message, type = 'success', onClose }) {
+function Toast({ message, type = 'success', isVisible, onClose }) {
   useEffect(() => {
-    const timer = setTimeout(onClose, 3000)
-    return () => clearTimeout(timer)
-  }, [onClose])
+    if (isVisible) {
+      const timer = setTimeout(onClose, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [isVisible, onClose])
 
-  const bgColor = type === 'success' ? 'bg-green' : 'bg-pink'
+  if (!isVisible) return null
+
+  const bgColor = type === 'success' ? 'from-green-500 to-emerald-500' : 
+                  type === 'error' ? 'from-red-500 to-rose-500' : 
+                  'from-purple-500 to-pink-500'
 
   return (
-    <div className={`fixed top-20 right-4 ${bgColor} text-white px-6 py-4 rounded-xl shadow-2xl animate-slide-up z-50 max-w-sm`}>
-      <div className="flex items-center space-x-3">
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-        </svg>
-        <p className="font-medium">{message}</p>
+    <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[100] animate-slide-up">
+      <div className={`px-6 py-3 bg-gradient-to-r ${bgColor} text-white rounded-full shadow-xl flex items-center gap-3`}>
+        {type === 'success' && <span>✓</span>}
+        {type === 'error' && <span>✕</span>}
+        <span className="font-medium">{message}</span>
       </div>
     </div>
   )

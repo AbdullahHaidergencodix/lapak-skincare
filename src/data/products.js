@@ -9,7 +9,7 @@ const products = [
     image: "/content/images/sarnla-lotion.jpg", 
     description: "For dry itchy skin. Skin Care and Aesthetic Professional-backed moisturizing lotion for daily relief.", 
     badge: "Popular",
-    stock: 25,
+    stock: 9999,
     rating: 4.5,
     reviewCount: 48,
     reviews: [
@@ -27,7 +27,7 @@ const products = [
     category: "Cleansing Bar", 
     image: "/content/images/versas-bar.jpg", 
     description: "For scabies, fungal infection. Medicated cleansing bar for skin conditions.",
-    stock: 3,
+    stock: 9999,
     rating: 4.2,
     reviewCount: 23,
     reviews: [
@@ -45,7 +45,7 @@ const products = [
     image: "/content/images/acnela-bar.jpg", 
     description: "Medicated cleansing bar formulated for acne-prone skin.", 
     badge: "Best Seller",
-    stock: 42,
+    stock: 9999,
     rating: 4.8,
     reviewCount: 156,
     reviews: [
@@ -65,7 +65,7 @@ const products = [
     image: "/content/images/lavite-cream.jpg", 
     description: "For skin whitening & brightening. Advanced formula for radiant complexion.", 
     badge: "Premium",
-    stock: 18,
+    stock: 9999,
     rating: 4.6,
     reviewCount: 89,
     reviews: [
@@ -83,7 +83,7 @@ const products = [
     image: "/content/images/aquaphil-gel.jpg", 
     description: "Lightweight gel moisturizer for long-lasting hydration.", 
     badge: "Best Seller",
-    stock: 0,
+    stock: 9999,
     rating: 4.7,
     reviewCount: 112,
     reviews: [
@@ -101,7 +101,7 @@ const products = [
     image: "/content/images/aquaphil-bar.jpg", 
     description: "Soap-free cleansing bar for dry and sensitive skin.", 
     badge: "Popular",
-    stock: 31,
+    stock: 9999,
     rating: 4.4,
     reviewCount: 67,
     reviews: [
@@ -119,7 +119,7 @@ const products = [
     image: "/content/images/aquaphil-lotion.jpg", 
     description: "Daily-use lotion providing deep moisturization.", 
     badge: "Best Seller",
-    stock: 15,
+    stock: 9999,
     rating: 4.5,
     reviewCount: 94,
     reviews: [
@@ -135,7 +135,7 @@ const products = [
     category: "Vitamin Care", 
     image: "/content/images/vits-e-bar.jpg", 
     description: "Vitamin-E enriched cleansing bar for skin nourishment.",
-    stock: 22,
+    stock: 9999,
     rating: 4.3,
     reviewCount: 38,
     reviews: [
@@ -151,7 +151,7 @@ const products = [
     category: "Hair Care", 
     image: "/content/images/laven-shampoo.jpg", 
     description: "Mild shampoo formulated for sensitive scalp and daily use.",
-    stock: 5,
+    stock: 9999,
     rating: 4.1,
     reviewCount: 29,
     reviews: [
@@ -168,7 +168,7 @@ const products = [
     image: "/content/images/sunla-sunblock.jpg", 
     description: "Broad-spectrum sunblock for daily UV protection.", 
     badge: "New",
-    stock: 40,
+    stock: 9999,
     rating: 4.6,
     reviewCount: 51,
     reviews: [
@@ -186,7 +186,7 @@ const products = [
     image: "/content/images/acnela-cream.jpg", 
     description: "Targeted acne treatment cream recommended by dermatologists.", 
     badge: "Popular",
-    stock: 28,
+    stock: 9999,
     rating: 4.7,
     reviewCount: 103,
     reviews: [
@@ -204,7 +204,7 @@ const products = [
     image: "/content/images/aquaphil-oil.jpg", 
     description: "Intensive care oil for extremely dry and sensitive skin.", 
     badge: "Premium",
-    stock: 12,
+    stock: 9999,
     rating: 4.8,
     reviewCount: 45,
     reviews: [
@@ -221,7 +221,7 @@ const products = [
     image: "/content/images/acnela-facewash.jpg", 
     description: "Gentle foaming face wash for acne-prone skin.", 
     badge: "Best Seller",
-    stock: 35,
+    stock: 9999,
     rating: 4.6,
     reviewCount: 128,
     reviews: [
@@ -239,7 +239,7 @@ const products = [
     image: "/content/images/cariderm-cream.jpg", 
     description: "For Melasma, Freckles, dark spots. Specialized brightening treatment.", 
     badge: "Premium",
-    stock: 8,
+    stock: 9999,
     rating: 4.5,
     reviewCount: 76,
     reviews: [
@@ -256,7 +256,7 @@ const products = [
     image: "/content/images/aquaphil-plus.jpg", 
     description: "Advanced moisturizing formula for long-term skin comfort.", 
     badge: "Popular",
-    stock: 20,
+    stock: 9999,
     rating: 4.4,
     reviewCount: 82,
     reviews: [

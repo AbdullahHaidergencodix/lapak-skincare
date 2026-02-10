@@ -1,13 +1,39 @@
-export const whatsappNumber = '923054573962';
-export const businessName = 'LA Pakistan';
-export const ownerName = 'Dr Fatima Abid';
-export const ownerTitle = 'Skin Care and Aesthetic Professional';
-export const city = 'Faisalabad';
-export const since = '2012';
-export const instagram = 'lapak.officials';
-export const deliveryAreas = 'Nationwide Delivery Available';
-export const businessHours = '24/7 Customer Support';
-export const shippingFee = 150;
-export const freeShippingThreshold = 2000;
-export const bundleDiscountThreshold = 3;
-export const bundleDiscountAmount = 200;
+// LA PAKISTAN - CONFIGURATION
+
+export const companyName = 'LA Pakistan';
+export const tagline = 'Premium Skincare & Aesthetics';
+
+// Leadership
+export const ceo = {
+  name: 'DR Muhammad Abid Yasin Ghumman',
+  title: 'CEO & Founder',
+  role: 'Skin Dermatologist'
+};
+
+export const md = {
+  name: 'DR Fatima Abid',
+  title: 'Managing Director',
+  role: 'Skincare & Aesthetic Professional'
+};
+
+// Since
+export const since = 2012;
+
+// Contact
+export const contact = {
+  phone: '+923054573962',
+  whatsapp: '923054573962',
+  email: 'lapakofficials@gmail.com',
+  instagram: 'lapak.officials'
+};
+
+// Address
+export const address = {
+  full: '2-Z-3, FSR Madina Town, Faisalabad',
+  city: 'Faisalabad',
+  postalCode: '38000',
+  country: 'Pakistan'
+};
+
+// URLs
+export const siteUrl = 'https://lapakskincare.vercel.app';

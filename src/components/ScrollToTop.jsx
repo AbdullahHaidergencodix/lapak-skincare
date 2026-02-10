@@ -1,39 +1,30 @@
 import React, { useState, useEffect } from 'react'
 
 function ScrollToTop() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [visible, setVisible] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
-    }
-
-    window.addEventListener('scroll', toggleVisibility)
-    return () => window.removeEventListener('scroll', toggleVisibility)
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
   }, [])
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
+  useEffect(() => {
+    const toggle = () => setVisible(window.pageYOffset > 400)
+    window.addEventListener('scroll', toggle, { passive: true })
+    return () => window.removeEventListener('scroll', toggle)
+  }, [])
 
-  if (!isVisible) return null
+  if (!visible) return null
 
   return (
-    <button
-      onClick={scrollToTop}
-      className="fixed bottom-8 right-8 bg-gradient-to-r from-accent to-purple text-white p-4 rounded-full shadow-2xl hover:shadow-purple/50 transition-all duration-300 hover:scale-110 z-40 animate-bounce-slow"
-      aria-label="Scroll to top"
+    <button 
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+      className={`fixed ${isMobile ? 'bottom-20 right-4' : 'bottom-6 right-6'} p-3 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white rounded-2xl shadow-xl shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-110 transition-all z-40 active:scale-95`}
     >
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-      </svg>
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
   )
 }

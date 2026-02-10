@@ -1,52 +1,109 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-function Header({ cartCount, onCartClick, wishlistCount, onWishlistClick }) {
+function Header({ cartCount, onCartClick, wishlistCount, onWishlistClick, searchQuery, onSearchChange }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : ''
+  }, [isMenuOpen])
+
+  const navItems = ['Home', 'Trending', 'Bundles', 'Products', 'Reviews', 'FAQ']
+
+  const scrollTo = (name) => {
+    setIsMenuOpen(false)
+    const id = name.toLowerCase()
+    if (id === 'home') { window.scrollTo({ top: 0, behavior: 'smooth' }); return }
+    const el = document.getElementById(id)
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' })
+  }
+
   return (
-    <header className="sticky top-0 z-50 glass border-b-2 border-accent/20 shadow-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-accent via-purple to-pink rounded-full flex items-center justify-center animate-pulse-slow">
-              <span className="text-white font-bold text-xl">L</span>
+    <>
+      <header className={`sticky top-4 z-50 mx-4 rounded-2xl transition-all duration-500 ${isScrolled ? 'glass-strong shadow-2xl' : 'glass-strong'}`}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16">
+            
+            <button onClick={() => setIsMenuOpen(true)} className="md:hidden p-2.5 rounded-xl bg-white/30 text-gray-700 hover:bg-white/50 transition-colors">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
+
+            <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('Home') }} className="flex items-center gap-3">
+              <img src="/logo.png" alt="LA Pakistan" className="w-10 h-10 rounded-xl object-contain bg-white/50 p-1 shadow" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex' }} />
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-500 rounded-xl items-center justify-center hidden shadow-lg"><span className="text-white font-bold text-lg">L</span></div>
+              <div>
+                <span className="text-lg font-bold text-gray-800">LA Pakistan</span>
+                <p className="text-[10px] text-purple-600 font-medium hidden sm:block">Premium Skincare</p>
+              </div>
+            </a>
+
+            <nav className="hidden md:flex items-center gap-1 bg-white/40 rounded-full px-2 py-1.5 shadow-inner">
+              {navItems.map(item => (
+                <button key={item} onClick={() => scrollTo(item)} className="px-4 py-2 text-sm text-gray-600 hover:text-purple-700 hover:bg-white/60 rounded-full transition-all font-medium">{item}</button>
+              ))}
+            </nav>
+
+            <div className="flex items-center gap-2">
+              <button onClick={() => setIsSearchOpen(!isSearchOpen)} className="md:hidden p-2.5 rounded-xl bg-white/30 text-gray-700 hover:bg-white/50 transition-colors">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              </button>
+              
+              <button onClick={onWishlistClick} className="relative p-2.5 rounded-xl bg-pink-100/80 text-pink-600 hover:bg-pink-200/80 transition-colors shadow">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                {wishlistCount > 0 && <span className="absolute -top-1 -right-1 w-5 h-5 bg-pink-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow">{wishlistCount}</span>}
+              </button>
+
+              <button onClick={onCartClick} className="relative p-2.5 rounded-xl bg-purple-100/80 text-purple-600 hover:bg-purple-200/80 transition-colors shadow">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+                {cartCount > 0 && <span className="absolute -top-1 -right-1 w-5 h-5 bg-purple-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow">{cartCount}</span>}
+              </button>
+
+              <a href="https://wa.me/923054573962" target="_blank" rel="noopener noreferrer" className="hidden lg:flex items-center gap-2 px-4 py-2.5 bg-green-100/80 hover:bg-green-200/80 rounded-xl text-green-700 text-sm font-semibold transition-colors shadow">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Chat
+              </a>
             </div>
-            <h1 className="text-2xl font-black gradient-text">LA Pakistan</h1>
-            <span className="hidden sm:inline-block px-3 py-1 bg-gradient-to-r from-accent to-purple text-white text-xs rounded-full">
-              Premium Skincare
-            </span>
           </div>
-          <div className="flex items-center space-x-3">
-            <button
-              onClick={onWishlistClick}
-              className="relative p-2 rounded-xl hover:bg-pink/10 transition-colors group"
-              aria-label="Wishlist"
-            >
-              <svg className="w-6 h-6 text-pink group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
-              {wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-pink to-purple text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold animate-bounce">
-                  {wishlistCount}
-                </span>
-              )}
-            </button>
-            <button
-              onClick={onCartClick}
-              className="relative p-2 rounded-xl hover:bg-accent/10 transition-colors group"
-              aria-label="Shopping cart"
-            >
-              <svg className="w-6 h-6 text-accent group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-              </svg>
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-accent to-purple text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold animate-bounce">
-                  {cartCount}
-                </span>
-              )}
-            </button>
+
+          {isSearchOpen && (
+            <div className="md:hidden pb-4">
+              <input type="text" placeholder="Search products..." value={searchQuery || ''} onChange={(e) => onSearchChange?.(e.target.value)} className="w-full px-4 py-3 bg-white/80 rounded-xl text-gray-800 placeholder-gray-400 border border-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400 shadow-inner" />
+            </div>
+          )}
+        </div>
+      </header>
+
+      {isMenuOpen && <div className="md:hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-[60]" onClick={() => setIsMenuOpen(false)} />}
+      <div className={`md:hidden fixed top-0 left-0 bottom-0 w-80 z-[70] transform transition-transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="h-full glass-strong rounded-r-3xl overflow-hidden">
+          <div className="p-6 bg-gradient-to-r from-purple-600 to-pink-500">
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-white text-lg drop-shadow">LA Pakistan</span>
+              <button onClick={() => setIsMenuOpen(false)} className="p-2 rounded-xl bg-white/20 text-white">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+            </div>
+            <p className="text-white/80 text-sm mt-1">Premium Skincare Since 2012</p>
           </div>
+          <nav className="p-4 space-y-1">
+            {navItems.map(item => (
+              <button key={item} onClick={() => scrollTo(item)} className="w-full text-left px-4 py-3 text-gray-700 hover:text-purple-700 hover:bg-white/50 rounded-xl transition-all font-medium">{item}</button>
+            ))}
+            <div className="pt-4 mt-4 border-t border-white/30 space-y-2">
+              <a href="https://wa.me/923054573962" className="flex items-center gap-3 px-4 py-3 bg-green-100/80 rounded-xl text-green-700 font-medium">💬 WhatsApp</a>
+              <a href="mailto:lapakofficials@gmail.com" className="flex items-center gap-3 px-4 py-3 bg-purple-100/80 rounded-xl text-purple-700 font-medium">✉️ Email</a>
+            </div>
+          </nav>
         </div>
       </div>
-    </header>
+    </>
   )
 }
 
