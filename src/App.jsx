@@ -110,7 +110,7 @@ function App() {
         <Hero />
         <TrustBadges />
         <TrendingSection products={products} onAddToCart={addToCart} onQuickView={setQuickViewProduct} onToggleWishlist={toggleWishlist} wishlist={wishlist} />
-        <BundlesSection bundles={bundles} products={products} onAddBundle={addBundle} />
+        <BundlesSection bundles={bundles} products={products} onAddBundle={addBundle} onQuickView={setQuickViewProduct} />
         <ProductsSection products={products} onAddToCart={addToCart} onQuickView={setQuickViewProduct} onToggleWishlist={toggleWishlist} wishlist={wishlist} searchQuery={searchQuery} />
         <ReviewsSection products={products} />
         <FAQSection />
