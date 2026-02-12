@@ -26,9 +26,9 @@ function TrustSections() {
             
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <h3 className="text-xl font-bold mb-1">DR Muhammad Abid Yasin Ghumman</h3>
-              <p className="text-purple-200 font-medium mb-3">CEO & Founder • Skin Dermatologist</p>
+              <p className="text-purple-200 font-medium mb-3">CEO & Founder • Obliege Pharmaceutical</p>
               <p className="text-white/80 text-sm leading-relaxed">
-                Founded LA Pakistan in 2012 with a vision to make professional skincare accessible to everyone. As a Skin Dermatologist, he ensures all products meet clinical standards and deliver real results.
+                Founded LA Pakistan in 2012 with a vision to make professional skincare accessible to everyone. As a prominent figure in Pakistani skincare and pharmaceutical industry, he ensures all products meet clinical standards and deliver real results.
               </p>
             </div>
           </div>

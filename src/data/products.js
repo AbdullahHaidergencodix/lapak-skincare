@@ -184,19 +184,19 @@ const products = [
     size: "20 gm", 
     category: "Acne Treatment", 
     image: "/content/images/acnela-cream.jpg", 
-    description: "Targeted acne treatment cream recommended by dermatologists.", 
+    description: "Targeted acne treatment cream by LA Pakistan for effective results.", 
     badge: "Popular",
     stock: 9999,
     rating: 4.7,
     reviewCount: 103,
     reviews: [
       { name: "Huma Nawaz", rating: 5, comment: "Cleared my acne in 3 weeks! Amazing product.", verified: true, date: "1 week ago" },
-      { name: "Danish Ali", rating: 5, comment: "Dermatologist recommended and it works!", verified: true, date: "2 weeks ago" }
+      { name: "Danish Ali", rating: 5, comment: "Recommended by LA Pakistan experts and it works!", verified: true, date: "2 weeks ago" }
     ]
   },
   { 
     id: 12, 
-    name: "Aquaphil Plus Care Oil", 
+    name: "Aquaphil Plus Hair Care Oil", 
     price: 950, 
     originalPrice: 1200, 
     size: "100 ml", 
@@ -235,7 +235,7 @@ const products = [
     price: 699, 
     originalPrice: 899, 
     size: "20 gm", 
-    category: "Dermatology Care", 
+    category: "Skin Care", 
     image: "/content/images/cariderm-cream.jpg", 
     description: "For Melasma, Freckles, dark spots. Specialized brightening treatment.", 
     badge: "Premium",
@@ -248,7 +248,7 @@ const products = [
   },
   { 
     id: 15, 
-    name: "Aquaphil Plus", 
+    name: "Aquaphil Plus Ointment", 
     price: 450, 
     originalPrice: 600, 
     size: "100 gm", 

@@ -22,7 +22,7 @@ function FAQ() {
     },
     {
       question: "Are these products suitable for sensitive skin?",
-      answer: "Most of our products are formulated for sensitive skin. However, we recommend patch testing and consulting with a dermatologist if you have specific concerns."
+      answer: "Most of our products are formulated for sensitive skin. However, we recommend patch testing and consulting with a skincare professional if you have specific concerns."
     },
     {
       question: "Do you ship to my city?",

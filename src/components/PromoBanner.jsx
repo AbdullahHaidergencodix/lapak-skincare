@@ -6,7 +6,7 @@ function PromoBanner() {
 
   const promos = [
     { text: '🚚 FREE Shipping on orders over PKR 2,000!', highlight: 'FREE Shipping' },
-    { text: '👩‍⚕️ Dermatologist Recommended by DR Fatima Abid', highlight: 'DR Fatima Abid' },
+    { text: '👩‍⚕️ Recommended by Dr. Fatima Abid - Director Medical Affairs, Obliege Group', highlight: 'DR Fatima Abid' },
     { text: '🏆 Trusted Since 2012 - Over a Decade of Excellence', highlight: 'Since 2012' },
     { text: '💼 Wholesale Available for Pharmacies Nationwide', highlight: 'Wholesale' },
   ]

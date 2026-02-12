@@ -15,7 +15,7 @@ function Footer() {
                 <p className="font-semibold text-gray-800">DR Fatima Abid</p>
                 <p className="text-gray-500 text-xs">Skincare & Aesthetic Professional</p>
                 <p className="font-semibold text-gray-800 mt-2">DR Muhammad Abid Yasin Ghumman</p>
-                <p className="text-gray-500 text-xs">Skin Dermatologist</p>
+                <p className="text-gray-500 text-xs">CEO, Obliege Pharmaceutical</p>
               </div>
             </div>
             <div>

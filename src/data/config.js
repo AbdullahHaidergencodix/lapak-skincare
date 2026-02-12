@@ -7,7 +7,7 @@ export const tagline = 'Premium Skincare & Aesthetics';
 export const ceo = {
   name: 'DR Muhammad Abid Yasin Ghumman',
   title: 'CEO & Founder',
-  role: 'Skin Dermatologist'
+  role: 'CEO, Obliege Pharmaceutical'
 };
 
 export const md = {
