@@ -36,8 +36,8 @@ function Header({ cartCount, onCartClick, wishlistCount, onWishlistClick, search
             </button>
 
             <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('Home') }} className="flex items-center gap-3">
-              <img src="/logo.png" alt="LA Pakistan" className="w-10 h-10 rounded-xl object-contain bg-white/50 p-1 shadow" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex' }} />
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-500 rounded-xl items-center justify-center hidden shadow-lg"><span className="text-white font-bold text-lg">L</span></div>
+              <img src="/logo.png" alt="LA Pakistan" className="w-10 h-10 rounded-xl object-contain bg-white/50 p-1 shadow"  />
+              
               <div>
                 <span className="text-lg font-bold text-gray-800">LA Pakistan</span>
                 <p className="text-[10px] text-purple-600 font-medium hidden sm:block">Premium Skincare</p>
