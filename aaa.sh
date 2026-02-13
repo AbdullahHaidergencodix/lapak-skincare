@@ -14,13 +14,71 @@ cat > src/index.css << 'EOF'
   body {
     min-height: 100dvh;
     min-height: -webkit-fill-available;
-    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 20%, #f48fb1 40%, #ce93d8 60%, #b39ddb 80%, #e1bee7 100%);
+    background: linear-gradient(
+      -45deg,
+      #fce4ec,
+      #f8bbd0,
+      #f48fb1,
+      #f06292,
+      #ec407a,
+      #e91e63,
+      #d81b60,
+      #c2185b,
+      #ad1457,
+      #880e4f,
+      #ce93d8,
+      #ba68c8,
+      #ab47bc,
+      #9c27b0,
+      #8e24aa,
+      #e1bee7,
+      #d1c4e9,
+      #b39ddb,
+      #9575cd,
+      #7e57c2,
+      #ffcdd2,
+      #ef9a9a,
+      #e57373,
+      #ef5350,
+      #f44336,
+      #ffccbc,
+      #ffab91,
+      #ff8a65,
+      #ff7043,
+      #ff5722,
+      #ffe0b2,
+      #ffcc80,
+      #ffb74d,
+      #ffa726,
+      #ff9800,
+      #fce4ec
+    );
+    background-size: 400% 400%;
+    animation: gradientFlow 20s ease infinite;
     background-attachment: fixed;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     overscroll-behavior-y: contain;
+  }
+
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 50% 100%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    75% {
+      background-position: 50% 0%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
   .pb-safe { padding-bottom: max(env(safe-area-inset-bottom, 20px), 20px); }
@@ -285,7 +343,13 @@ button, .no-select {
   }
 }
 
+/* Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+    background: linear-gradient(-45deg, #fce4ec, #f8bbd0, #ce93d8, #e1bee7);
+  }
+  
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
@@ -296,7 +360,7 @@ button, .no-select {
 
 @media print {
   .no-print { display: none !important; }
-  body { background: white !important; }
+  body { background: white !important; animation: none !important; }
   .glass, .glass-strong, .glass-card { 
     background: white !important;
     box-shadow: none !important;
@@ -304,19 +368,20 @@ button, .no-select {
 }
 EOF
 
-echo "✅ Feminine color scheme applied!"
+echo "✅ Live animated feminine gradient applied!"
 echo ""
-echo "🎀 Color Palette:"
-echo "   Background: Soft pink → Rose → Mauve → Lavender gradient"
-echo "   Glass: Blush pink tints with rose borders"
-echo "   Shadows: Rose/pink undertones"
-echo "   Accents: Pink (#ec4899) highlights"
+echo "🎀 Animated Gradient Colors:"
+echo "   • Blush Pink (#fce4ec)"
+echo "   • Rose (#f8bbd0, #f48fb1, #f06292)"
+echo "   • Hot Pink (#ec407a, #e91e63)"
+echo "   • Deep Rose (#d81b60, #c2185b)"
+echo "   • Orchid Purple (#ce93d8, #ba68c8)"
+echo "   • Violet (#ab47bc, #9c27b0)"
+echo "   • Lavender (#e1bee7, #d1c4e9)"
+echo "   • Soft Coral (#ffcdd2, #ef9a9a)"
+echo "   • Peach (#ffccbc, #ffab91)"
+echo "   • Warm Apricot (#ffe0b2, #ffcc80)"
 echo ""
-echo "💅 Changes made:"
-echo "   • Body gradient: Soft feminine pinks & lavenders"
-echo "   • Glass effects: Rose-tinted backgrounds"
-echo "   • Borders: Pink/rose colored"
-echo "   • Shadows: Warm pink undertones"
-echo "   • Selection color: Pink"
-echo "   • Focus rings: Pink"
-echo "   • Scrollbar: Pink accent"
+echo "✨ Animation: 20s smooth infinite loop"
+echo "📱 Works on all devices (mobile optimized)"
+echo "♿ Respects reduced-motion preferences"
