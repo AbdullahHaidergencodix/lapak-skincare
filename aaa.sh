@@ -1,11 +1,8 @@
-# Update all .jpg to .webp in the entire src folder
-sed -i '' 's/\.jpg/.webp/g' src/data/products.js
-sed -i '' 's/\.jpg/.webp/g' src/components/*.jsx
-sed -i '' 's/\.jpg/.webp/g' src/data/*.js
+# Update footer text
+sed -i '' 's/DR Fatima Abid/Dr. Fatima Abid/g' src/components/Footer.jsx
+sed -i '' 's/Skincare & Aesthetic Professional/Director Medical Affairs/g' src/components/Footer.jsx
+sed -i '' 's/Muhammad Abid Yasin/Muhammad Abid Yasin Ghumman/g' src/components/Footer.jsx
+sed -i '' 's/CEO\/Pharmaceutical/CEO/g' src/components/Footer.jsx
 
 echo "✅ Done! Verifying..."
-echo "Remaining .jpg references:"
-grep -rn "\.jpg" src/
-echo "---"
-echo "Total .webp references:"
-grep -c "\.webp" src/data/products.js
+grep -n "Fatima\|Muhammad\|CEO\|Director" src/components/Footer.jsx

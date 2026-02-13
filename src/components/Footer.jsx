@@ -12,10 +12,10 @@ function Footer() {
               <h3 className="font-bold text-gray-800 text-xl mb-4">LA Pakistan</h3>
               <p className="text-sm text-gray-600 mb-4">Premium skincare & aesthetic products since 2012.</p>
               <div className="bg-white/50 rounded-xl p-4 text-sm space-y-2 shadow-inner">
-                <p className="font-semibold text-gray-800">DR Fatima Abid</p>
-                <p className="text-gray-500 text-xs">Skincare & Aesthetic Professional</p>
-                <p className="font-semibold text-gray-800 mt-2">Muhammad Abid Yasin</p>
-                <p className="text-gray-500 text-xs">CEO/Pharmaceutical</p>
+                <p className="font-semibold text-gray-800">Dr. Fatima Abid</p>
+                <p className="text-gray-500 text-xs">Director Medical Affairs</p>
+                <p className="font-semibold text-gray-800 mt-2">Muhammad Abid Yasin Ghumman</p>
+                <p className="text-gray-500 text-xs">CEO</p>
               </div>
             </div>
             <div>
