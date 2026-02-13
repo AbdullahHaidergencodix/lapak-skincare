@@ -23,7 +23,7 @@ const bundles = [
     id: 'b3',
     name: 'Daily Glow Routine',
     description: 'For radiant, glowing skin every day',
-    products: [1, 4, 10],
+    products: [8, 4, 10],
     originalPrice: 1829,
     price: 1499,
     savings: 330,

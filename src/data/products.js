@@ -202,7 +202,7 @@ const products = [
     size: "100 ml", 
     category: "Hair Oil", 
     image: "/content/images/aquaphil-oil.webp", 
-    description: "Intensive care oil for extremely dry and sensitive skin.", 
+    description: "Intensive care oil for dry and itchy scalp.", 
     badge: "Premium",
     stock: 9999,
     rating: 4.8,

@@ -7,7 +7,7 @@ function FAQSection() {
     { q: "What payment methods do you accept?", a: "We accept Cash on Delivery (COD) across Pakistan. Payment via bank transfer and JazzCash/Easypaisa also available." },
     { q: "How long does shipping take?", a: "We ship within 24-48 hours. Delivery takes 2-4 business days for major cities, 4-7 days for other areas." },
     { q: "Do you offer free shipping?", a: "Yes! Free shipping on all orders above PKR 2,000. Orders below this have a flat shipping rate." },
-    { q: "Are your products authentic?", a: "100% authentic. All products are from our own manufacturing under supervision of DR Fatima Abid and DR Muhammad Abid Yasin Ghumman." },
+    { q: "Are your products authentic?", a: "100% authentic. All products are from our own manufacturing under supervision of Dr. Fatima Abid." },
     { q: "Can I return a product?", a: "Yes, we accept returns within 7 days if the product is unopened and in original packaging. Contact us via WhatsApp." },
     { q: "Do you offer wholesale pricing?", a: "Yes! We offer special wholesale rates for bulk orders. Contact us on WhatsApp for wholesale inquiries." },
   ]
