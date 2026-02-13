@@ -9,7 +9,7 @@ const bundles = [
     originalPrice: 1490,
     bundlePrice: 1190,
     savings: 300,
-    image: '/content/images/acnela-bar.jpg',
+    image: '/content/images/acnela-bar.webp',
     badge: 'Most Popular'
   },
   {
@@ -20,7 +20,7 @@ const bundles = [
     originalPrice: 1078,
     bundlePrice: 850,
     savings: 228,
-    image: '/content/images/aquaphil-gel.jpg',
+    image: '/content/images/aquaphil-gel.webp',
     badge: 'Best Value'
   },
   {
@@ -31,7 +31,7 @@ const bundles = [
     originalPrice: 2129,
     bundlePrice: 1699,
     savings: 430,
-    image: '/content/images/lavite-cream.jpg',
+    image: '/content/images/lavite-cream.webp',
     badge: 'Premium'
   }
 ]

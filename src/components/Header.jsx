@@ -40,7 +40,7 @@ function Header({ cartCount, onCartClick, wishlistCount, onWishlistClick, search
               
               <div>
                 <span className="text-lg font-bold text-gray-800">LA Pakistan</span>
-                <p className="text-[10px] text-purple-600 font-medium hidden sm:block">Premium Skincare</p>
+                <p className="text-[10px] text-purple-600 font-medium hidden sm:block">Premium Skincare Since 2012</p>
               </div>
             </a>
 

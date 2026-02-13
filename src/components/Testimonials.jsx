@@ -27,7 +27,7 @@ function Testimonials() {
       name: "Ali Hassan",
       location: "Faisalabad",
       role: "Verified Customer",
-      text: "Acnela Face Wash cleared my acne in just 3 weeks! Being from the same city as LA Pakistan, I trust their science-backed products from Obliege Pharmaceutical.",
+      text: "Acnela Face Wash cleared my acne in just 3 weeks! Being from the same city as LA Pakistan, I trust their science-backed products from LA Pakistan.",
       rating: 5
     }
   ]
