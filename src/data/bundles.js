@@ -5,8 +5,8 @@ const bundles = [
     description: 'Everything you need for clear, acne-free skin',
     products: [3, 11, 13],
     originalPrice: 1490,
-    price: 1199,
-    savings: 291,
+    price: 1267,
+    savings: 223,
     badge: 'Best Seller'
   },
   {
@@ -15,8 +15,8 @@ const bundles = [
     description: 'Deep moisturizing combo for dry skin',
     products: [5, 6, 7],
     originalPrice: 1078,
-    price: 899,
-    savings: 179,
+    price: 916,
+    savings: 162,
     badge: 'Popular'
   },
   {
@@ -24,9 +24,9 @@ const bundles = [
     name: 'Daily Glow Routine',
     description: 'For radiant, glowing skin every day',
     products: [8, 4, 10],
-    originalPrice: 1829,
-    price: 1499,
-    savings: 330,
+    originalPrice: 1720,
+    price: 1462,
+    savings: 258,
     badge: 'Premium'
   }
 ]
